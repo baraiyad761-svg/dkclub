@@ -2,87 +2,103 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DK CLUB - All Games</title>
+<title>DK CLUB - Real Bet</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:#0f0f0f;color:#fff}
-#login{padding:20px;padding-top:50px} input{width:100%;padding:15px;margin:10px 0;border-radius:10px;border:none;background:#222;color:#fff} .btn{width:100%;padding:15px;background:gold;border:none;border-radius:25px;font-weight:bold}
-#main{display:none} .top{background:#1a1a1a;color:gold;padding:12px;text-align:center} .wallet{background:linear-gradient(135deg,#ffcc00,#ff8800);margin:10px;padding:15px;border-radius:12px;color:#000;display:flex;justify-content:space-between}
-.games{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px;padding-bottom:80px} .g{background:#222;border-radius:10px;padding:15px 5px;text-align:center;border:1px solid #333} .g:active{transform:scale(0.9)}
-#gameBox{position:fixed;top:0;left:0;width:100%;height:100%;background:#111;display:none;z-index:999;padding:15px;text-align:center}
-.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:15px 0} .box{background:#333;height:55px;border-radius:8px;display:flex;justify-content:center;align-items:center;font-size:22px}
+#login{padding:20px;padding-top:50px} input{width:100%;padding:15px;margin:8px 0;border-radius:10px;border:none;background:#222;color:#fff} .btn{width:100%;padding:15px;background:gold;border:none;border-radius:25px;font-weight:bold;margin-top:10px}
+#main{display:none} .top{background:#1a1a1a;color:gold;padding:12px;text-align:center}
+.wallet{background:linear-gradient(135deg,#ffcc00,#ff8800);margin:10px;padding:15px;border-radius:12px;color:#000;display:flex;justify-content:space-between;align-items:center}
+.games{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px} .g{background:#222;border-radius:10px;padding:15px 5px;text-align:center;border:1px solid #333}
+#gameBox{position:fixed;top:0;left:0;width:100%;height:100%;background:#111;display:none;z-index:999;padding:15px;text-align:center;overflow:auto}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:15px 0} .box{background:#2a2a2a;height:55px;border-radius:8px;display:flex;justify-content:center;align-items:center;font-size:22px;border:1px solid #444}
+.betRow{display:flex;gap:8px;margin:10px 0} .betRow input{flex:1} .betRow button{padding:12px 15px;border-radius:10px;border:none;background:#333;color:#fff}
 </style>
 </head>
 <body>
-<div id="login"><h1 style="color:gold;text-align:center">DK CLUB</h1><input id="phone" placeholder="+91 Number"><input type="password" placeholder="Password"><button class="btn" onclick="document.getElementById('login').style.display='none';document.getElementById('main').style.display='block'">Log in</button></div>
+<div id="login"><h1 style="color:gold;text-align:center">DK CLUB</h1><input placeholder="+91 Number"><input type="password" placeholder="Password"><button class="btn" onclick="document.getElementById('login').style.display='none';document.getElementById('main').style.display='block'">Log in</button></div>
 
 <div id="main">
-<div class="top">DK CLUB | Balance ₹<span id="bal">500.00</span></div>
-<div class="wallet"><b>Wallet</b><button onclick="balance+=100;document.getElementById('bal').innerText=balance" style="padding:8px 15px;border-radius:20px;border:none;background:#000;color:gold">+₹100</button></div>
+<div class="top">DK CLUB | Balance: ₹<span id="bal">5000</span></div>
+<div class="wallet"><b>₹<span id="bal2">5000</span></b><span style="font-size:12px">Playable Balance</span></div>
+
+<div style="padding:10px">
+<p style="color:#aaa;font-size:14px">Bet Amount ગમે એટલી નાખો</p>
+<div class="betRow">
+<input id="betAmt" type="number" value="100" placeholder="Bet Amount">
+<button onclick="document.getElementById('betAmt').value=100">100</button>
+<button onclick="document.getElementById('betAmt').value=500">500</button>
+<button onclick="document.getElementById('betAmt').value=1000">1000</button>
+</div>
+</div>
+
 <div class="games">
-<div class="g" onclick="openGame('AVIATOR')">🚀<br>AVIATOR</div>
-<div class="g" onclick="openGame('CHICKEN')">🐔<br>CHICKEN ROAD</div>
-<div class="g" onclick="openGame('MINES')">💣<br>MINES</div>
-<div class="g" onclick="openGame('DRAGON')">🐉<br>DRAGON TIGER</div>
-<div class="g" onclick="openGame('PLINKO')">🎯<br>PLINKO</div>
-<div class="g" onclick="openGame('DICE')">🎲<br>DICE</div>
-<div class="g" onclick="openGame('CRICKET')">🏏<br>CRICKET</div>
-<div class="g" onclick="openGame('ROULETTE')">🎰<br>ROULETTE</div>
-<div class="g" onclick="openGame('GEMS')">💎<br>GEMS CLASH</div>
+<div class="g" onclick="startGame('MINES')">💣<br>MINES</div>
+<div class="g" onclick="startGame('GEMS')">💎<br>GEMS CLASH</div>
+<div class="g" onclick="startGame('AVIATOR')">🚀<br>AVIATOR</div>
+<div class="g" onclick="startGame('CHICKEN')">🐔<br>CHICKEN ROAD</div>
+<div class="g" onclick="startGame('DRAGON')">🐉<br>DRAGON</div>
+<div class="g" onclick="startGame('DICE')">🎲<br>DICE</div>
+<div class="g" onclick="startGame('PLINKO')">🎯<br>PLINKO</div>
+<div class="g" onclick="startGame('ROULETTE')">🎰<br>ROULETTE</div>
+<div class="g" onclick="startGame('CRICKET')">🏏<br>CRICKET</div>
 </div>
 </div>
 
 <div id="gameBox">
 <h2 id="gTitle" style="color:gold"></h2>
-<div id="gContent" style="margin-top:20px"></div>
-<h2 style="margin:15px 0">Win: ₹<span id="win">0</span></h2>
-<button class="btn" style="background:#00c851;color:#fff" onclick="collect()">Cashout</button>
-<button onclick="document.getElementById('gameBox').style.display='none'" style="width:100%;margin-top:10px;padding:10px;background:none;border:1px solid #555;color:#fff;border-radius:20px">Back</button>
+<p>Bet: ₹<span id="showBet">0</span> | Win: ₹<span id="win">0</span> | Multiplier: <span id="mult">1.00</span>x</p>
+<div id="gContent"></div>
+<button class="btn" style="background:#00c851;color:#fff;margin-top:15px" onclick="cashout()">WIN - Cashout</button>
+<button onclick="closeG()" style="width:100%;margin-top:10px;padding:10px;background:none;border:1px solid #555;color:#fff;border-radius:20px">Close - Loss</button>
 </div>
 
 <script>
-let balance=500, win=0, currentGame='', multi=1, timer;
-let balEl=document.getElementById('bal'), winEl=document.getElementById('win');
+let balance=5000, bet=0, win=0, mult=1, bombs=[];
+function updateBal(){document.getElementById('bal').innerText=balance; document.getElementById('bal2').innerText=balance;}
 
-function openGame(type){
-currentGame=type; win=0; winEl.innerText=0;
-document.getElementById('gTitle').innerText=type;
-document.getElementById('gameBox').style.display='block';
-let c=document.getElementById('gContent'); c.innerHTML='';
+function startGame(name){
+  bet=parseInt(document.getElementById('betAmt').value);
+  if(bet<=0 || bet>balance){alert('Balance ઓછું છે! Bet ઓછી નાખો. Balance: ₹'+balance); return;}
+  balance-=bet; updateBal();
+  win=0; mult=1;
+  document.getElementById('showBet').innerText=bet;
+  document.getElementById('win').innerText=0;
+  document.getElementById('mult').innerText='1.00';
+  document.getElementById('gTitle').innerText=name+' - ₹'+bet+' Bet';
+  document.getElementById('gameBox').style.display='block';
+  let c=document.getElementById('gContent'); c.innerHTML='';
 
-if(type=='MINES' || type=='GEMS'){
-  let bombs=[Math.floor(Math.random()*25),Math.floor(Math.random()*25)];
-  let grid=document.createElement('div'); grid.className='grid5';
-  for(let i=0;i<25;i++){
-    let d=document.createElement('div'); d.className='box'; d.innerText='?';
-    d.onclick=function(){
-      if(d.innerText!='?') return;
-      if(bombs.includes(i)){d.innerText='💣';d.style.background='red';alert('Bomb!');document.getElementById('gameBox').style.display='none';}
-      else{d.innerText='💎';d.style.background='green';win+=30;winEl.innerText=win;}
-    };
-    grid.appendChild(d);
+  if(name=='MINES' || name=='GEMS'){
+    bombs=[3,12,22]; // 3 bomb
+    let grid=document.createElement('div'); grid.className='grid5';
+    for(let i=0;i<25;i++){
+      let d=document.createElement('div'); d.className='box'; d.innerText='?';
+      d.onclick=function(){
+        if(d.innerText!='?') return;
+        if(bombs.includes(i)){d.innerText='💣';d.style.background='red'; alert('💣 Bomb! ₹'+bet+' Loss Thai Gaya'); closeG();}
+        else{d.innerText='💎';d.style.background='#00c851'; mult+=0.9; win=Math.floor(bet*mult); document.getElementById('win').innerText=win; document.getElementById('mult').innerText=mult.toFixed(2);}
+      };
+      grid.appendChild(d);
+    }
+    c.appendChild(grid);
+    c.innerHTML+='<p style="color:#aaa;font-size:12px">Gems kholo to paisa vadhe. Bomb avse to badhu loss.</p>';
+  } else {
+    c.innerHTML='<h1 id="roll" style="font-size:60px;margin:20px">?</h1><button class="btn" onclick="playOther()">PLAY</button>';
   }
-  c.appendChild(grid);
 }
-if(type=='AVIATOR'){
-  multi=1; c.innerHTML='<h1 id="m" style="font-size:60px;color:red">1.00x</h1><p>Plane Udi Rahyu Che...</p><button class="btn" style="background:red;color:#fff;margin-top:20px" onclick="stopAviator()">STOP & CASHOUT</button>';
-  timer=setInterval(()=>{multi+=0.05; document.getElementById('m').innerText=multi.toFixed(2)+'x'; if(Math.random()<0.05){clearInterval(timer);document.getElementById('m').innerText='CRASHED '+multi.toFixed(2)+'x';}},100);
+
+function playOther(){
+  let r=Math.random();
+  if(r>0.45){mult=1.9; win=Math.floor(bet*mult); document.getElementById('win').innerText=win; document.getElementById('mult').innerText=mult.toFixed(2); document.getElementById('roll').innerText='WIN '+mult+'x';}
+  else{document.getElementById('roll').innerText='LOSS'; alert('Loss! ₹'+bet+' Gaya'); closeG();}
 }
-if(type=='CHICKEN'){
-  c.innerHTML='<div style="background:#333;height:100px;position:relative;border-radius:10px"><div id="chik" style="position:absolute;left:0;top:30px;font-size:30px">🐔</div></div><button class="btn" style="margin-top:20px" onclick="moveChicken()">GO STEP</button>'; window.chickPos=0;
+
+function cashout(){
+  if(win==0){alert('Pehla ek Gems kholo!'); return;}
+  balance+=win; updateBal(); alert('You Won ₹'+win+' ! Bet ₹'+bet+' -> Win ₹'+win); closeG();
 }
-if(type=='DRAGON'){
-  c.innerHTML='<div style="display:flex;justify-content:space-around;font-size:50px"><div>🐉<br><span id="d1">?</span></div><div>🐯<br><span id="d2">?</span></div></div><button class="btn" style="margin-top:20px" onclick="playDT()">DEAL CARDS</button>';
-}
-if(type=='DICE' || type=='PLINKO' || type=='ROULETTE' || type=='CRICKET'){
-  c.innerHTML='<h1 id="dice" style="font-size:70px">🎲</h1><button class="btn" style="margin-top:20px" onclick="rollDice()">ROLL</button>';
-}
-}
-function stopAviator(){clearInterval(timer);win=Math.floor(multi*50);winEl.innerText=win;alert('You Won ₹'+win);}
-function moveChicken(){chickPos+=20;document.getElementById('chik').style.left=chickPos+'px';win+=20;winEl.innerText=win; if(chickPos>250){alert('Chicken Crossed!');}}
-function playDT(){let a=Math.floor(Math.random()*13)+1,b=Math.floor(Math.random()*13)+1;document.getElementById('d1').innerText=a;document.getElementById('d2').innerText=b; if(a>b){win=100;winEl.innerText=win;}else{alert('Tiger Won, You Lost');}}
-function rollDice(){let r=Math.floor(Math.random()*6)+1;document.getElementById('dice').innerText=r;win=r*20;winEl.innerText=win;}
-function collect(){balance+=win;balEl.innerText=balance;alert('₹'+win+' Added to Wallet');document.getElementById('gameBox').style.display='none';}
+function closeG(){document.getElementById('gameBox').style.display='none';}
 </script>
 </body>
   </html>
