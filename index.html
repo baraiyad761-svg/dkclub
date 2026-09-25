@@ -1,103 +1,77 @@
-here<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>91 CLUB - BLUE EDITION</title>
+<title>DK CLUB - 91 Club Clone</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', sans-serif;}
-body{background:#070f2a;color:#fff;}
-.top{background:linear-gradient(180deg,#0a194e,#070f2a);padding:14px;border-bottom:1px solid #1a2a6a}
-.head{display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:900;font-size:22px;line-height:1}
-.logo span{font-size:11px;color:#4a90e2;letter-spacing:2px;display:block}
-.walletBox{background:linear-gradient(135deg,#102054,#1a2f6b);border:1px solid #2a4a9a;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-.walletBox b{font-size:18px}
-.depBtn{background:linear-gradient(90deg,#1e90ff,#3a6bff);border:none;color:#fff;padding:8px 16px;border-radius:20px;font-weight:800}
-.uidBar{background:#0f2052;border:1px solid #1e3a8a;border-radius:12px;padding:10px 12px;margin:12px;display:flex;gap:8px;align-items:center;font-size:13px;font-weight:700}
-.vip{background:#000;color:#ffcc00;border:1px solid #ffcc00;padding:3px 10px;border-radius:20px;font-size:11px}
-.tabs{display:flex;gap:8px;padding:0 12px;overflow:auto}
-.tabs div{padding:10px 18px;border-radius:22px;background:#1a2b5a;color:#7a8bb5;font-weight:800;white-space:nowrap}
-.tabs .active{background:#1e6bff;color:#fff}
-.betSec{padding:14px 12px}
-.betGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
-.betGrid div{border:1.5px solid #2a3f7a;border-radius:12px;padding:12px 0;text-align:center;font-weight:800;color:#5a6fa8;background:#0f1e45}
-.betGrid .sel{background:linear-gradient(180deg,#1e6bff,#154dda);color:#fff;border-color:#1e6bff}
-.popHead{display:flex;justify-content:space-between;padding:12px;font-weight:800;font-size:18px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 12px 90px}
-.card{background:linear-gradient(180deg,#111e45,#0d1735);border:1px solid #1e3a7a;border-radius:18px;padding:12px 6px;text-align:center;box-shadow:0 4px 20px #0005}
-.card .icon{font-size:42px;margin-bottom:6px;display:block}
-.card p{font-size:11px;font-weight:800;letter-spacing:0.5px}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#0a1638;border-top:1px solid #1a2f6a;display:flex;justify-content:space-around;padding:10px 0}
-.bottom div{text-align:center;font-size:10px;color:#5a6fa8}
-.bottom .active{color:#1e6bff}
-.badge{width:8px;height:8px;background:#00ff88;border-radius:50%;display:inline-block;margin:2px}
-#minesPage{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#070f2a;z-index:100;padding:12px;overflow:auto}
-.mGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
-.mCell{height:58px;background:#162656;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;border:1px solid #234080}
+body{margin:0;font-family:Arial;background:#f2f3f7}
+.top{background:linear-gradient(90deg,#ff4e50,#ff8a8a);color:#fff;padding:15px;border-radius:0 0 20px 20px;text-align:center}
+.balance{background:#fff;margin:10px;padding:15px;border-radius:15px;display:flex;justify-content:space-between;align-items:center}
+.bal{font-size:22px;font-weight:bold;color:#ff4e50}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:#fff;border-radius:15px;padding:10px;text-align:center;box-shadow:0 2px 5px #0001}
+.card img{width:100%;border-radius:10px;height:100px;object-fit:cover}
+.card p{margin:5px 0 0;font-weight:bold}
+.btn{background:linear-gradient(90deg,#008cff,#00c6ff);color:#fff;border:none;padding:10px 20px;border-radius:20px;width:100%;margin-top:5px;font-weight:bold}
+#gameBox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#0b2a5b;z-index:99;padding:10px;overflow:auto;color:#fff}
+.gemGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+.gem{height:60px;background:#123a7a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:28px}
+.fortune{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 </style>
 </head>
 <body>
+
 <div class="top">
-<div class="head">
-<div class="logo">🛡️ 91 CLUB<span>BLUE EDITION</span></div>
-<div style="text-align:right"><div style="font-size:11px;color:#7aa0d0">Wallet balance</div><div><b id="balTop">₹5000.00</b></div></div>
-<button class="depBtn">+ Deposit</button>
-</div>
-<div class="walletBox">
-<div><div style="font-size:11px;opacity:0.7">💰 Balance</div><b>₹<span id="bal">5000.00</span></b></div>
-<div style="text-align:right"><div style="font-size:11px;opacity:0.7">🔥 Profit</div><b style="color:#00ff88">₹<span id="profitTop">0</span></b></div>
-</div>
+<h2 style="margin:0">DK CLUB</h2>
+<p style="margin:0;font-size:12px">kanpur91.com Original Clone</p>
 </div>
 
-<div class="uidBar">🛡️ UID 8233336 💎 <span class="vip">⭐ BLUE VIP</span></div>
-
-<div class="tabs"><div class="active">For You</div><div>Lobby</div><div>Slots</div><div>Original</div></div>
-
-<div class="betSec">
-<div style="display:flex;justify-content:space-between;color:#7aa0d0;font-size:13px;font-weight:700"><span>Bet Amount - ગમે એટલી નાખો</span><span>ⓘ</span></div>
-<div class="betGrid">
-<div class="sel" onclick="setBet(100,this)">₹100</div>
-<div onclick="setBet(100,this)">₹100</div>
-<div onclick="setBet(500,this)">₹500</div>
-<div onclick="setBet(1000,this)">₹1000</div>
+<div class="balance">
+<div>Total balance<br><span class="bal">₹<span id="bal">5000.00</span></span></div>
+<button onclick="alert('Deposit Coming Soon')" style="background:#ff4e50;color:#fff;border:none;padding:8px 15px;border-radius:20px">Enter wallet</button>
 </div>
-</div>
-
-<div class="popHead"><span>Popular Games</span><span style="color:#1e6bff;font-size:13px">See all ></span></div>
 
 <div class="grid">
-<div class="card" onclick="openMines()"><span class="badge"></span><span class="icon">💣</span><p>MINES</p></div>
-<div class="card"><span class="badge"></span><span class="icon">💎</span><p>GEMS CLASH</p></div>
-<div class="card"><span class="badge"></span><span class="icon">🚀</span><p>AVIATOR</p></div>
-<div class="card"><span class="badge"></span><span class="icon">🐔</span><p>CHICKEN ROAD</p></div>
-<div class="card"><span class="badge"></span><span class="icon">🐉</span><p>DRAGON</p></div>
-<div class="card"><span class="badge"></span><span class="icon">🎲</span><p>DICE</p></div>
-<div class="card"><span class="badge"></span><span class="icon">🎯</span><p>PLINKO</p></div>
-<div class="card"><span class="badge"></span><span class="icon">🎰</span><p>ROULETTE</p></div>
-<div class="card"><span class="badge"></span><span class="icon">🏏</span><p>CRICKET</p></div>
+<div class="card" onclick="openMines()"><img src="https://cdn-icons-png.flaticon.com/512/3612/3612021.png"><p>💣 MINES CLASH</p><button class="btn">PLAY NOW</button></div>
+<div class="card" onclick="openGems()"><img src="https://cdn-icons-png.flaticon.com/512/1006/1006584.png"><p>💎 FORTUNE GEMS</p><button class="btn">PLAY NOW</button></div>
+<div class="card" onclick="openFish()"><img src="https://cdn-icons-png.flaticon.com/512/3079/3079166.png"><p>🐟 HAPPY FISHING</p><button class="btn">PLAY NOW</button></div>
+<div class="card"><img src="https://cdn-icons-png.flaticon.com/512/3090/3090173.png"><p>🎰 WIN GO</p><button class="btn">PLAY NOW</button></div>
 </div>
 
-<div class="bottom"><div class="active">🏠<br>Home</div><div>💼<br>Earnings</div><div>🎁<br>Promos</div><div>👥<br>Refer</div><div>👤<br>Profile</div></div>
-
-<div id="minesPage">
-<div style="display:flex;justify-content:space-between;align-items:center"><h3>💣 MINES - BLUE EDITION</h3><span onclick="minesPage.style.display='none'" style="font-size:26px">✕</span></div>
-<div style="margin-top:12px;background:#111e45;padding:12px;border-radius:12px;display:flex;justify-content:space-between"><span>Multiplier: <b id="mult">1.00x</b></span><span>Profit: ₹<b id="profit">0</b></span></div>
-<div class="mGrid" id="mGrid"></div>
-<button id="startBtn" onclick="startGame()" style="width:100%;padding:16px;margin-top:16px;border-radius:30px;border:none;background:linear-gradient(90deg,#1e6bff,#0047ff);color:#fff;font-weight:900;font-size:16px">START GAME ₹<span id="betTxt">100</span></button>
-<button id="cashBtn" onclick="cashout()" style="display:none;width:100%;padding:16px;margin-top:16px;border-radius:30px;border:none;background:#00c853;color:#fff;font-weight:900;font-size:16px">CASHOUT ₹<span id="cashTxt">0</span></button>
+<!-- GAME BOX -->
+<div id="gameBox">
+<button onclick="closeGame()" style="float:right;background:red;color:#fff;border:none;padding:5px 10px;border-radius:5px">X</button>
+<h2 id="gTitle">Game</h2>
+<div id="gContent"></div>
 </div>
 
 <script>
-let bal=5000, bet=100, bombs=[], opened=0, mult=1, profit=0, playing=false;
-function setBet(v,el){bet=v; document.querySelectorAll('.betGrid div').forEach(d=>d.classList.remove('sel')); el.classList.add('sel'); document.getElementById('betTxt').innerText=v;}
-function openMines(){document.getElementById('minesPage').style.display='block'; drawGrid();}
-function drawGrid(){let g=document.getElementById('mGrid'); g.innerHTML=''; for(let i=0;i<25;i++){let d=document.createElement('div'); d.className='mCell'; d.id='c'+i; d.innerText='?'; d.onclick=()=>clickC(i); g.appendChild(d);}}
-function startGame(){if(bal<bet){alert('Low Balance');return;} bal-=bet; upd(); bombs=[]; while(bombs.length<3){let r=Math.floor(Math.random()*25); if(!bombs.includes(r)) bombs.push(r);} opened=0; mult=1; profit=0; playing=true; drawGrid(); startBtn.style.display='none'; cashBtn.style.display='block'; upM();}
-function clickC(i){if(!playing) return; let el=document.getElementById('c'+i); if(el.innerText!='?') return; if(bombs.includes(i)){el.innerText='💣'; el.style.background='#ff1744'; playing=false; setTimeout(()=>{alert('💥 Bomb! Game Over'); startBtn.style.display='block'; cashBtn.style.display='none';},200);} else {el.innerText='💎'; el.style.background='#00c853'; opened++; mult+=0.85; profit=Math.floor(bet*mult); upM();}}
-function upM(){document.getElementById('mult').innerText=mult.toFixed(2)+'x'; document.getElementById('profit').innerText=profit; document.getElementById('profitTop').innerText=profit; document.getElementById('cashTxt').innerText=profit;}
-function upd(){document.getElementById('bal').innerText=bal.toFixed(2); document.getElementById('balTop').innerText='₹'+bal.toFixed(2);}
-function cashout(){if(profit==0) return; bal+=profit; upd(); alert('Win ₹'+profit); playing=false; startBtn.style.display='block'; cashBtn.style.display='none';}
+let balance = 5000;
+function openMines(){
+document.getElementById('gameBox').style.display='block';
+document.getElementById('gTitle').innerText='MINES CLASH - BLUE EDITION';
+let h='<p>Bet: ₹50 | Balance: ₹'+balance+'</p><div class="gemGrid">';
+for(let i=0;i<25;i++) h+=`<div class="gem" onclick="this.innerText='💎';this.style.background='#00c6ff'">?</div>`;
+h+='</div><br><button class="btn" onclick="balance+=100;document.getElementById(`bal`).innerText=balance;alert(`You Win ₹100!`)">CASHOUT</button>';
+document.getElementById('gContent').innerHTML=h;
+}
+function openGems(){
+document.getElementById('gameBox').style.display='block';
+document.getElementById('gTitle').innerText='FORTUNE GEMS - SUPER WIN';
+let symbols=['💎','🔷','🟦','J','A'];
+let h='<div style="background:gold;padding:10px;border-radius:10px;color:#000;text-align:center">SUPER WIN 15X MULTIPLIER</div><div class="fortune" style="margin-top:15px">';
+for(let i=0;i<9;i++) h+=`<div class="gem" style="background:#fff;color:#000">${symbols[Math.floor(Math.random()*5)]}</div>`;
+h+='</div><br><p>Bet: ₹3.00 | Balance: ₹'+balance+'</p><button class="btn" style="background:orange" onclick="openGems()">SPIN</button>';
+document.getElementById('gContent').innerHTML=h;
+}
+function openFish(){
+document.getElementById('gameBox').style.display='block';
+document.getElementById('gTitle').innerText='HAPPY FISHING';
+document.getElementById('gContent').innerHTML=`<div style="text-align:center"><h3>Select Mode</h3><button class="btn" style="background:#00c6ff;margin:10px" onclick="alert('Tutorial Started - Free Play')">Tutorial Mode (Free)<br>For Newbies</button><br><button class="btn" style="background:#ff4e50;margin:10px" onclick="alert('Real Money Mode Started')">Real Money Mode<br>For Veterans</button><br><img src="https://cdn-icons-png.flaticon.com/512/3079/3079166.png" style="width:150px;margin-top:20px"></div>`;
+}
+function closeGame(){document.getElementById('gameBox').style.display='none';}
 </script>
+
 </body>
-                                                                     </html>
+</html>
+                                                                     </>
