@@ -1,77 +1,141 @@
-<!DOCTYPE html>
-<html>
+here<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DK CLUB - 91 Club Clone</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>91 CLUB - Original Clone - DKCLUB</title>
 <style>
-body{margin:0;font-family:Arial;background:#f2f3f7}
-.top{background:linear-gradient(90deg,#ff4e50,#ff8a8a);color:#fff;padding:15px;border-radius:0 0 20px 20px;text-align:center}
-.balance{background:#fff;margin:10px;padding:15px;border-radius:15px;display:flex;justify-content:space-between;align-items:center}
-.bal{font-size:22px;font-weight:bold;color:#ff4e50}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.card{background:#fff;border-radius:15px;padding:10px;text-align:center;box-shadow:0 2px 5px #0001}
-.card img{width:100%;border-radius:10px;height:100px;object-fit:cover}
-.card p{margin:5px 0 0;font-weight:bold}
-.btn{background:linear-gradient(90deg,#008cff,#00c6ff);color:#fff;border:none;padding:10px 20px;border-radius:20px;width:100%;margin-top:5px;font-weight:bold}
-#gameBox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#0b2a5b;z-index:99;padding:10px;overflow:auto;color:#fff}
-.gemGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
-.gem{height:60px;background:#123a7a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:28px}
-.fortune{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f5f5f5;padding-bottom:70px}
+.top-notice{background:#fff3e0;color:#ff6f00;font-size:11px;padding:6px;text-align:center;white-space:nowrap;overflow:hidden}
+.banner{background:linear-gradient(90deg,#2c0a4a,#8e2de2,#ff416c);padding:12px;border-radius:0;color:#fff;position:relative}
+.banner h1{font-size:22px;font-weight:900}.banner h1 span{color:#ffd700}
+.wallet{background:#fff;margin:10px;border-radius:12px;padding:10px;display:flex;justify-content:space-between}
+.w-left b{color:#ff4e50}
+.w-right button{border:none;padding:6px 12px;border-radius:20px;color:#fff;font-weight:bold}
+.w-right .wd{background:#ff8a8a}.w-right .dp{background:#ff4e50;margin-left:5px}
+.icons{display:flex;justify-content:space-around;margin:10px 0;background:#fff;padding:10px;border-radius:12px}
+.icons div{text-align:center;font-size:11px}
+.lobby{background:#fff;margin:0 10px;border-radius:12px;padding:8px;display:flex;gap:10px;overflow:auto}
+.lobby span{white-space:nowrap;background:#f2f2f2;padding:5px 10px;border-radius:15px;font-size:12px}
+.lobby .active{background:#ff4e50;color:#fff}
+.section{margin:10px}
+.section .head{display:flex;justify-content:space-between;font-weight:bold;margin-bottom:6px;font-size:14px}
+.cards{display:flex;gap:10px;overflow:auto;padding-bottom:5px}
+.card{min-width:110px;height:90px;border-radius:12px;background-size:cover;background-position:center;position:relative;flex-shrink:0;display:flex;align-items:flex-end;padding:5px;color:#fff;font-weight:bold;font-size:11px}
+.card.small{min-width:85px;height:75px}
+.red{background:linear-gradient(135deg,#ff4e50,#ff8a8a)}
+.blue{background:linear-gradient(135deg,#2196f3,#00bcd4)}
+.green{background:linear-gradient(135deg,#4caf50,#8bc34a)}
+.purple{background:linear-gradient(135deg,#9c27b0,#e91e63)}
+.orange{background:linear-gradient(135deg,#ff9800,#ff5722)}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd}
+.bottom div{text-align:center;font-size:10px;color:#888}
+.bottom .act{color:#ff4e50}
+.get500{position:fixed;bottom:65px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#ff4e50,#ff8a8a);color:#fff;padding:6px 15px;border-radius:20px;font-size:12px;font-weight:bold;box-shadow:0 3px 10px #0003}
 </style>
 </head>
 <body>
 
-<div class="top">
-<h2 style="margin:0">DK CLUB</h2>
-<p style="margin:0;font-size:12px">kanpur91.com Original Clone</p>
+<div class="top-notice">No matter all of member bet amount reached during... ₹0.00 all cashback... Be the first to receive the latest...</div>
+
+<div class="banner">
+<h1>>> REAL TIME << <br>0.3% REBATE 1%</h1>
+<p style="font-size:11px">GET THE ULTIMATE CASH BACK</p>
+<div style="position:absolute;right:10px;top:20px;font-size:10px;text-align:center">🎡 Wheel<br>of fortune</div>
 </div>
 
-<div class="balance">
-<div>Total balance<br><span class="bal">₹<span id="bal">5000.00</span></span></div>
-<button onclick="alert('Deposit Coming Soon')" style="background:#ff4e50;color:#fff;border:none;padding:8px 15px;border-radius:20px">Enter wallet</button>
+<div class="wallet">
+<div class="w-left">Wallet balance<br><b>₹0.84</b> 🔄</div>
+<div class="w-right"><button class="wd">Withdraw</button><button class="dp">Deposit</button></div>
 </div>
 
-<div class="grid">
-<div class="card" onclick="openMines()"><img src="https://cdn-icons-png.flaticon.com/512/3612/3612021.png"><p>💣 MINES CLASH</p><button class="btn">PLAY NOW</button></div>
-<div class="card" onclick="openGems()"><img src="https://cdn-icons-png.flaticon.com/512/1006/1006584.png"><p>💎 FORTUNE GEMS</p><button class="btn">PLAY NOW</button></div>
-<div class="card" onclick="openFish()"><img src="https://cdn-icons-png.flaticon.com/512/3079/3079166.png"><p>🐟 HAPPY FISHING</p><button class="btn">PLAY NOW</button></div>
-<div class="card"><img src="https://cdn-icons-png.flaticon.com/512/3090/3090173.png"><p>🎰 WIN GO</p><button class="btn">PLAY NOW</button></div>
+<div class="icons">
+<div>🔄<br>Wheel</div><div>👑<br>VIP</div><div>🎁<br>Bonus</div><div>📢<br>Notice</div>
 </div>
 
-<!-- GAME BOX -->
-<div id="gameBox">
-<button onclick="closeGame()" style="float:right;background:red;color:#fff;border:none;padding:5px 10px;border-radius:5px">X</button>
-<h2 id="gTitle">Game</h2>
-<div id="gContent"></div>
+<div class="lobby">
+<span class="active">📍 Lobby</span><span>🔥 Popular</span><span>🎰 Slots</span><span>🃏 Card</span><span>🎣 Fishing</span>
 </div>
 
-<script>
-let balance = 5000;
-function openMines(){
-document.getElementById('gameBox').style.display='block';
-document.getElementById('gTitle').innerText='MINES CLASH - BLUE EDITION';
-let h='<p>Bet: ₹50 | Balance: ₹'+balance+'</p><div class="gemGrid">';
-for(let i=0;i<25;i++) h+=`<div class="gem" onclick="this.innerText='💎';this.style.background='#00c6ff'">?</div>`;
-h+='</div><br><button class="btn" onclick="balance+=100;document.getElementById(`bal`).innerText=balance;alert(`You Win ₹100!`)">CASHOUT</button>';
-document.getElementById('gContent').innerHTML=h;
-}
-function openGems(){
-document.getElementById('gameBox').style.display='block';
-document.getElementById('gTitle').innerText='FORTUNE GEMS - SUPER WIN';
-let symbols=['💎','🔷','🟦','J','A'];
-let h='<div style="background:gold;padding:10px;border-radius:10px;color:#000;text-align:center">SUPER WIN 15X MULTIPLIER</div><div class="fortune" style="margin-top:15px">';
-for(let i=0;i<9;i++) h+=`<div class="gem" style="background:#fff;color:#000">${symbols[Math.floor(Math.random()*5)]}</div>`;
-h+='</div><br><p>Bet: ₹3.00 | Balance: ₹'+balance+'</p><button class="btn" style="background:orange" onclick="openGems()">SPIN</button>';
-document.getElementById('gContent').innerHTML=h;
-}
-function openFish(){
-document.getElementById('gameBox').style.display='block';
-document.getElementById('gTitle').innerText='HAPPY FISHING';
-document.getElementById('gContent').innerHTML=`<div style="text-align:center"><h3>Select Mode</h3><button class="btn" style="background:#00c6ff;margin:10px" onclick="alert('Tutorial Started - Free Play')">Tutorial Mode (Free)<br>For Newbies</button><br><button class="btn" style="background:#ff4e50;margin:10px" onclick="alert('Real Money Mode Started')">Real Money Mode<br>For Veterans</button><br><img src="https://cdn-icons-png.flaticon.com/512/3079/3079166.png" style="width:150px;margin-top:20px"></div>`;
-}
-function closeGame(){document.getElementById('gameBox').style.display='none';}
-</script>
+<div class="section">
+<div class="head"><span>Recommended Games</span><span style="color:#999;font-size:11px">Detail ></span></div>
+<div class="cards">
+<div class="card red" style="background-image:url('https://i.imgur.com/8Km9tLL.png')">AVIATOR</div>
+<div class="card purple">AVIATOR<br>500%</div>
+<div class="card blue">AVIATOR</div>
+</div>
+</div>
+
+<div class="section">
+<div class="head"><span>Lottery</span><span style="color:#999">This games are independently...</span></div>
+<div class="cards">
+<div class="card green" style="min-width:140px">WIN GO<br>1 Min</div>
+<div class="card blue" style="min-width:140px">5D<br>5D</div>
+<div class="card orange" style="min-width:140px">TRX WIN GO<br>1 Min</div>
+</div>
+</div>
+
+<div class="section">
+<div class="head"><span>MOTO RACING</span></div>
+<div class="cards">
+<div class="card" style="min-width:100%;background:linear-gradient(90deg,#111,#333);height:60px">🏍️ MOTO RACING - RACE & WIN</div>
+</div>
+</div>
+
+<div class="section">
+<div class="head"><span>Mini game</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card small red">MINI<br>ROULETTE</div>
+<div class="card small green">HORSE<br>RACING</div>
+<div class="card small blue">KENO 80</div>
+</div>
+</div>
+
+<div class="section">
+<div class="head"><span>Slots</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card" style="min-width:100%;background:linear-gradient(90deg,#2d0a4a,#8e2de2);height:80px">🎰 CLASH OF GODS - Slots</div>
+</div>
+</div>
+
+<div class="section">
+<div class="head"><span>Rummy</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card small" style="background:#222">♠️ TEXAS<br>HOLDEM</div>
+<div class="card small" style="background:#111">365</div>
+</div>
+</div>
+
+<div class="section">
+<div class="head"><span>Fishing</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card small orange">BOOM<br>LEGEND</div>
+<div class="card small blue">MEGA<br>FISHING</div>
+<div class="card small green">HAPPY<br>FISHING</div>
+</div>
+</div>
+
+<div class="section">
+<div class="head"><span>Casino</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card small red">EVO</div>
+<div class="card small purple">CHOICE</div>
+</div>
+</div>
+
+<div class="section">
+<div class="head"><span>Sports</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card" style="min-width:100%;background:#0b4a2c;height:60px">⚽ SPORTS BETTING</div>
+</div>
+</div>
+
+<div class="get500">🎡 Get ₹500</div>
+
+<div class="bottom">
+<div class="act">🏠<br>Home</div><div>📊<br>Activity</div><div>💰<br>Promotion</div><div>👤<br>Account</div>
+</div>
 
 </body>
-</html>
-                                                                     </>
+                       </html>
