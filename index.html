@@ -7,63 +7,76 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:#0f0f0f;color:#fff}
 #login{padding:20px;padding-top:60px}
-input{width:100%;padding:15px;margin:10px 0;border-radius:10px;border:none;background:#222;color:#fff;font-size:16px}
-.btn{width:100%;padding:15px;background:gold;border:none;border-radius:25px;font-size:18px;font-weight:bold;margin-top:15px}
+input{width:100%;padding:15px;margin:10px 0;border-radius:10px;border:none;background:#222;color:#fff}
+.btn{width:100%;padding:15px;background:gold;border:none;border-radius:25px;font-weight:bold;margin-top:15px}
 #main{display:none}
-.top{background:#1a1a1a;color:gold;padding:15px;text-align:center;font-size:22px;font-weight:bold}
-.wallet{background:linear-gradient(135deg,#ffcc00,#ff8800);margin:15px;padding:20px;border-radius:15px;color:#000}
+.top{background:#1a1a1a;color:gold;padding:15px;text-align:center;font-weight:bold}
+.wallet{background:linear-gradient(135deg,#ffcc00,#ff8800);margin:15px;padding:15px;border-radius:15px;color:#000}
 .games{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:15px;padding-bottom:80px}
-.g{background:#222;border-radius:12px;padding:15px 5px;text-align:center}
-.bottom{position:fixed;bottom:0;width:100%;background:#1a1a1a;display:flex;justify-content:space-around;padding:10px 0;font-size:12px;text-align:center}
+.g{background:#222;border-radius:12px;padding:15px 5px;text-align:center;border:1px solid #333}
+.g:active{background:gold;color:#000;transform:scale(0.95)}
+#gameBox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);display:none;justify-content:center;align-items:center;flex-direction:column;z-index:99;padding:20px;text-align:center}
 </style>
 </head>
 <body>
 
 <div id="login">
 <h1 style="color:gold;text-align:center">DK CLUB</h1>
-<p style="text-align:center;color:#aaa;margin:10px 0">Log in with phone number</p>
 <input id="phone" placeholder="+91 Phone Number">
 <input type="password" placeholder="Password">
 <button class="btn" onclick="go()">Log in</button>
-<p style="text-align:center;margin-top:15px;color:#aaa">Don't have account? Register</p>
 </div>
 
 <div id="main">
-<div class="top">DK CLUB.COM</div>
+<div class="top">DK CLUB - Balance ₹<span id="bal">100.00</span></div>
 <div class="wallet">
-<p>UID 3674707 | Balance: ₹<span id="bal">100.00</span></p>
-<h2 style="margin:10px 0">₹<span id="bal2">100.00</span></h2>
-<button onclick="add()" style="padding:10px 20px;border-radius:20px;border:none;background:#000;color:gold">Deposit</button>
+<button onclick="add()" style="padding:10px 20px;border-radius:20px;border:none;background:#000;color:gold">Deposit ₹500</button>
 <button style="padding:10px 20px;border-radius:20px;border:none;background:#000;color:#fff">Withdraw</button>
 </div>
 <div class="games">
-<div class="g">🚀<br>AVIATOR</div>
-<div class="g">🐔<br>CHICKEN ROAD</div>
-<div class="g">💣<br>MINES</div>
-<div class="g">🐉<br>DRAGON TIGER</div>
-<div class="g">🎯<br>PLINKO</div>
-<div class="g">🎲<br>DICE</div>
-<div class="g">🏏<br>CRICKET</div>
-<div class="g">🎰<br>ROULETTE</div>
-<div class="g">💎<br>GEMS CLASH</div>
+<div class="g" onclick="openGame('AVIATOR')">🚀<br>AVIATOR</div>
+<div class="g" onclick="openGame('CHICKEN ROAD')">🐔<br>CHICKEN ROAD</div>
+<div class="g" onclick="openGame('MINES')">💣<br>MINES</div>
+<div class="g" onclick="openGame('DRAGON TIGER')">🐉<br>DRAGON TIGER</div>
+<div class="g" onclick="openGame('PLINKO')">🎯<br>PLINKO</div>
+<div class="g" onclick="openGame('DICE')">🎲<br>DICE</div>
+<div class="g" onclick="openGame('CRICKET')">🏏<br>CRICKET</div>
+<div class="g" onclick="openGame('ROULETTE')">🎰<br>ROULETTE</div>
+<div class="g" onclick="openGame('GEMS CLASH')">💎<br>GEMS CLASH</div>
 </div>
-<div class="bottom">
-<div>🏠<br>Home</div><div>🎁<br>Activity</div><div>💰<br>Bonus</div><div>👥<br>Promo</div><div>👤<br>Account</div>
 </div>
+
+<div id="gameBox">
+<h1 id="gName" style="color:gold"></h1>
+<p style="margin:15px 0">Game Starting...</p>
+<h2 id="win" style="font-size:40px">--</h2>
+<button class="btn" style="width:200px" onclick="play()">PLAY & WIN</button>
+<button onclick="closeGame()" style="margin-top:20px;background:none;border:1px solid #fff;color:#fff;padding:10px 20px;border-radius:20px">Close</button>
 </div>
 
 <script>
 function go(){
-if(document.getElementById('phone').value==""){alert("Phone Number Nakh");return;}
+if(document.getElementById('phone').value==""){alert("Phone Nakh");return;}
 document.getElementById('login').style.display='none';
 document.getElementById('main').style.display='block';
 }
 function add(){
 let b=parseFloat(document.getElementById('bal').innerText)+500;
 document.getElementById('bal').innerText=b.toFixed(2);
-document.getElementById('bal2').innerText=b.toFixed(2);
-alert("Deposit Success ₹500");
+alert("₹500 Added");
+}
+function openGame(name){
+document.getElementById('gName').innerText=name;
+document.getElementById('win').innerText="--";
+document.getElementById('gameBox').style.display='flex';
+}
+function closeGame(){document.getElementById('gameBox').style.display='none';}
+function play(){
+let amt=(Math.random()*100).toFixed(2);
+document.getElementById('win').innerText="You Won ₹"+amt;
+let b=parseFloat(document.getElementById('bal').innerText)+parseFloat(amt);
+document.getElementById('bal').innerText=b.toFixed(2);
 }
 </script>
 </body>
-  </html>
+                                                     </html>
