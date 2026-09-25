@@ -1,141 +1,111 @@
-here<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>91 CLUB - Original Clone - DKCLUB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DK CLUB - 91 CLUB Original</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#f5f5f5;padding-bottom:70px}
-.top-notice{background:#fff3e0;color:#ff6f00;font-size:11px;padding:6px;text-align:center;white-space:nowrap;overflow:hidden}
-.banner{background:linear-gradient(90deg,#2c0a4a,#8e2de2,#ff416c);padding:12px;border-radius:0;color:#fff;position:relative}
-.banner h1{font-size:22px;font-weight:900}.banner h1 span{color:#ffd700}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f5f5f5;padding-bottom:70px}
+.banner{background:linear-gradient(90deg,#2c0a4a,#8e2de2,#ff416c);padding:12px;color:#fff}
 .wallet{background:#fff;margin:10px;border-radius:12px;padding:10px;display:flex;justify-content:space-between}
-.w-left b{color:#ff4e50}
-.w-right button{border:none;padding:6px 12px;border-radius:20px;color:#fff;font-weight:bold}
-.w-right .wd{background:#ff8a8a}.w-right .dp{background:#ff4e50;margin-left:5px}
-.icons{display:flex;justify-content:space-around;margin:10px 0;background:#fff;padding:10px;border-radius:12px}
-.icons div{text-align:center;font-size:11px}
-.lobby{background:#fff;margin:0 10px;border-radius:12px;padding:8px;display:flex;gap:10px;overflow:auto}
-.lobby span{white-space:nowrap;background:#f2f2f2;padding:5px 10px;border-radius:15px;font-size:12px}
-.lobby .active{background:#ff4e50;color:#fff}
-.section{margin:10px}
-.section .head{display:flex;justify-content:space-between;font-weight:bold;margin-bottom:6px;font-size:14px}
-.cards{display:flex;gap:10px;overflow:auto;padding-bottom:5px}
-.card{min-width:110px;height:90px;border-radius:12px;background-size:cover;background-position:center;position:relative;flex-shrink:0;display:flex;align-items:flex-end;padding:5px;color:#fff;font-weight:bold;font-size:11px}
-.card.small{min-width:85px;height:75px}
-.red{background:linear-gradient(135deg,#ff4e50,#ff8a8a)}
-.blue{background:linear-gradient(135deg,#2196f3,#00bcd4)}
-.green{background:linear-gradient(135deg,#4caf50,#8bc34a)}
-.purple{background:linear-gradient(135deg,#9c27b0,#e91e63)}
-.orange{background:linear-gradient(135deg,#ff9800,#ff5722)}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd}
-.bottom div{text-align:center;font-size:10px;color:#888}
-.bottom .act{color:#ff4e50}
-.get500{position:fixed;bottom:65px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#ff4e50,#ff8a8a);color:#fff;padding:6px 15px;border-radius:20px;font-size:12px;font-weight:bold;box-shadow:0 3px 10px #0003}
+.wd{background:#ff8a8a;border:none;padding:6px 12px;border-radius:20px;color:#fff}.dp{background:#ff4e50;border:none;padding:6px 12px;border-radius:20px;color:#fff;margin-left:5px}
+.lobby{background:#fff;margin:0 10px;border-radius:12px;padding:8px;display:flex;gap:10px;overflow:auto}.lobby .active{background:#ff4e50;color:#fff;padding:5px 10px;border-radius:15px}
+.section{margin:10px}.cards{display:flex;gap:10px;overflow:auto}
+.card{min-width:110px;height:90px;border-radius:12px;display:flex;align-items:flex-end;padding:5px;color:#fff;font-weight:bold;flex-shrink:0}
+#gemPage{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#2a0a4a;z-index:999;color:#fff;padding:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.gemBox{background:#fff;border-radius:12px;height:85px;display:flex;align-items:center;justify-content:center;font-size:35px;box-shadow:inset 0 0 10px #0003}
+.mul{position:absolute;right:10px;top:100px;background:gold;color:#000;padding:5px;border-radius:5px;font-size:12px;font-weight:bold}
 </style>
 </head>
 <body>
 
-<div class="top-notice">No matter all of member bet amount reached during... ₹0.00 all cashback... Be the first to receive the latest...</div>
-
 <div class="banner">
-<h1>>> REAL TIME << <br>0.3% REBATE 1%</h1>
-<p style="font-size:11px">GET THE ULTIMATE CASH BACK</p>
-<div style="position:absolute;right:10px;top:20px;font-size:10px;text-align:center">🎡 Wheel<br>of fortune</div>
+<h3>>> REAL TIME << 0.3% REBATE 1%</h3>
+<p style="font-size:10px">GET THE ULTIMATE CASH BACK</p>
 </div>
 
 <div class="wallet">
-<div class="w-left">Wallet balance<br><b>₹0.84</b> 🔄</div>
-<div class="w-right"><button class="wd">Withdraw</button><button class="dp">Deposit</button></div>
-</div>
-
-<div class="icons">
-<div>🔄<br>Wheel</div><div>👑<br>VIP</div><div>🎁<br>Bonus</div><div>📢<br>Notice</div>
+<div>Wallet balance<br><b style="color:#ff4e50">₹<span id="bal">5000.00</span></b></div>
+<div><button class="wd">Withdraw</button><button class="dp">Deposit</button></div>
 </div>
 
 <div class="lobby">
-<span class="active">📍 Lobby</span><span>🔥 Popular</span><span>🎰 Slots</span><span>🃏 Card</span><span>🎣 Fishing</span>
+<span class="active">Lobby</span><span>Popular</span><span>Slots</span><span>Card</span><span>Fishing</span>
 </div>
 
 <div class="section">
-<div class="head"><span>Recommended Games</span><span style="color:#999;font-size:11px">Detail ></span></div>
+<b>Recommended Games</b>
 <div class="cards">
-<div class="card red" style="background-image:url('https://i.imgur.com/8Km9tLL.png')">AVIATOR</div>
-<div class="card purple">AVIATOR<br>500%</div>
-<div class="card blue">AVIATOR</div>
-</div>
-</div>
-
-<div class="section">
-<div class="head"><span>Lottery</span><span style="color:#999">This games are independently...</span></div>
-<div class="cards">
-<div class="card green" style="min-width:140px">WIN GO<br>1 Min</div>
-<div class="card blue" style="min-width:140px">5D<br>5D</div>
-<div class="card orange" style="min-width:140px">TRX WIN GO<br>1 Min</div>
+<div class="card" style="background:linear-gradient(135deg,#ff4e50,#ff8a8a)">AVIATOR</div>
+<div class="card" style="background:linear-gradient(135deg,#9c27b0,#e91e63)">AVIATOR 500%</div>
+<div class="card" style="background:linear-gradient(135deg,#2196f3,#00bcd4)">AVIATOR</div>
 </div>
 </div>
 
 <div class="section">
-<div class="head"><span>MOTO RACING</span></div>
+<b>Slots - GEMS GAME HERE</b>
 <div class="cards">
-<div class="card" style="min-width:100%;background:linear-gradient(90deg,#111,#333);height:60px">🏍️ MOTO RACING - RACE & WIN</div>
+<div class="card" onclick="openGems()" style="min-width:100%;background:linear-gradient(90deg,#ff9800,#ff5722);height:90px;justify-content:center;align-items:center;font-size:18px;border:3px solid gold">💎 FORTUNE GEMS - CLICK TO PLAY 💎</div>
 </div>
 </div>
 
 <div class="section">
-<div class="head"><span>Mini game</span><span>Detail ></span></div>
+<b>Lottery</b>
 <div class="cards">
-<div class="card small red">MINI<br>ROULETTE</div>
-<div class="card small green">HORSE<br>RACING</div>
-<div class="card small blue">KENO 80</div>
+<div class="card" style="background:#4caf50;min-width:100px">WIN GO</div>
+<div class="card" style="background:#2196f3;min-width:100px">5D</div>
+<div class="card" style="background:#ff9800;min-width:100px">TRX WIN GO</div>
 </div>
 </div>
 
 <div class="section">
-<div class="head"><span>Slots</span><span>Detail ></span></div>
+<b>Fishing</b>
 <div class="cards">
-<div class="card" style="min-width:100%;background:linear-gradient(90deg,#2d0a4a,#8e2de2);height:80px">🎰 CLASH OF GODS - Slots</div>
+<div class="card" style="background:#ff5722;min-width:90px">BOOM LEGEND</div>
+<div class="card" style="background:#00bcd4;min-width:90px">MEGA FISHING</div>
+<div class="card" style="background:#4caf50;min-width:90px">HAPPY FISHING</div>
 </div>
 </div>
 
-<div class="section">
-<div class="head"><span>Rummy</span><span>Detail ></span></div>
-<div class="cards">
-<div class="card small" style="background:#222">♠️ TEXAS<br>HOLDEM</div>
-<div class="card small" style="background:#111">365</div>
+<!-- GEMS WORKING PAGE -->
+<div id="gemPage">
+<button onclick="document.getElementById('gemPage').style.display='none'" style="float:right;background:red;color:#fff;border:none;padding:5px 10px;border-radius:5px">X CLOSE</button>
+<h2 style="color:gold;text-align:center">FORTUNE GEMS - SUPER WIN</h2>
+<p style="text-align:center;font-size:12px;margin-top:5px">Bet: ₹<span id="bet">10</span> | Balance: ₹<span id="bal2">5000</span></p>
+
+<div style="position:relative">
+<div class="mul">WIN MULTIPLIER<br>1X 2X 3X 5X 15X</div>
+<div class="grid3" id="grid">
+<div class="gemBox">💎</div><div class="gemBox">🔷</div><div class="gemBox">J</div>
+<div class="gemBox">A</div><div class="gemBox">WILD</div><div class="gemBox">💎</div>
+<div class="gemBox">K</div><div class="gemBox">💎</div><div class="gemBox">🔷</div>
 </div>
 </div>
 
-<div class="section">
-<div class="head"><span>Fishing</span><span>Detail ></span></div>
-<div class="cards">
-<div class="card small orange">BOOM<br>LEGEND</div>
-<div class="card small blue">MEGA<br>FISHING</div>
-<div class="card small green">HAPPY<br>FISHING</div>
-</div>
+<button onclick="spin()" style="width:100%;margin-top:20px;background:linear-gradient(90deg,#ff9800,#ff5722);color:#fff;border:none;padding:15px;border-radius:30px;font-size:20px;font-weight:bold">SPIN - ₹10</button>
+<p id="winMsg" style="text-align:center;margin-top:10px;font-weight:bold;color:gold"></p>
 </div>
 
-<div class="section">
-<div class="head"><span>Casino</span><span>Detail ></span></div>
-<div class="cards">
-<div class="card small red">EVO</div>
-<div class="card small purple">CHOICE</div>
-</div>
-</div>
-
-<div class="section">
-<div class="head"><span>Sports</span><span>Detail ></span></div>
-<div class="cards">
-<div class="card" style="min-width:100%;background:#0b4a2c;height:60px">⚽ SPORTS BETTING</div>
-</div>
-</div>
-
-<div class="get500">🎡 Get ₹500</div>
-
-<div class="bottom">
-<div class="act">🏠<br>Home</div><div>📊<br>Activity</div><div>💰<br>Promotion</div><div>👤<br>Account</div>
-</div>
+<script>
+let balance=5000; let bet=10;
+function openGems(){document.getElementById('gemPage').style.display='block';}
+function spin(){
+if(balance<bet){alert('Balance Low!');return;}
+balance-=bet;
+let symbols=['💎','🔷','🔶','J','A','K','WILD'];
+let grid=document.getElementById('grid'); grid.innerHTML='';
+let win=0; let countGem=0;
+for(let i=0;i<9;i++){
+let s=symbols[Math.floor(Math.random()*symbols.length)];
+if(s=='💎') countGem++;
+grid.innerHTML+=`<div class="gemBox">${s}</div>`;
+}
+if(countGem>=3){ win=bet*countGem*2; balance+=win; document.getElementById('winMsg').innerText='SUPER WIN! You Win ₹'+win+' with '+countGem+' Gems 💎';}
+else{ document.getElementById('winMsg').innerText='Try Again! '+countGem+' Gems Found';}
+document.getElementById('bal').innerText=balance.toFixed(2);
+document.getElementById('bal2').innerText=balance.toFixed(2);
+}
+</script>
 
 </body>
-                       </html>
+</html>
