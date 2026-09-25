@@ -1,104 +1,54 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DK CLUB - Real Bet</title>
+<title>91 CLUB BLUE</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#0f0f0f;color:#fff}
-#login{padding:20px;padding-top:50px} input{width:100%;padding:15px;margin:8px 0;border-radius:10px;border:none;background:#222;color:#fff} .btn{width:100%;padding:15px;background:gold;border:none;border-radius:25px;font-weight:bold;margin-top:10px}
-#main{display:none} .top{background:#1a1a1a;color:gold;padding:12px;text-align:center}
-.wallet{background:linear-gradient(135deg,#ffcc00,#ff8800);margin:10px;padding:15px;border-radius:12px;color:#000;display:flex;justify-content:space-between;align-items:center}
-.games{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px} .g{background:#222;border-radius:10px;padding:15px 5px;text-align:center;border:1px solid #333}
-#gameBox{position:fixed;top:0;left:0;width:100%;height:100%;background:#111;display:none;z-index:999;padding:15px;text-align:center;overflow:auto}
-.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:15px 0} .box{background:#2a2a2a;height:55px;border-radius:8px;display:flex;justify-content:center;align-items:center;font-size:22px;border:1px solid #444}
-.betRow{display:flex;gap:8px;margin:10px 0} .betRow input{flex:1} .betRow button{padding:12px 15px;border-radius:10px;border:none;background:#333;color:#fff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#eef2ff}
+.top{background:#0b3d91;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:19px;letter-spacing:1px}
+.wallet{margin:12px;background:linear-gradient(100deg,#0b3d91,#00b4ff);border-radius:20px;padding:18px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+.tabs{background:#fff;display:flex;gap:8px;padding:10px;overflow:auto}
+.tab{padding:8px 18px;border-radius:20px;border:1px solid #ddd;background:#fff;font-size:13px;white-space:nowrap}
+.tab.active{background:#0b3d91;color:#fff}
+.betBox{background:#fff;margin:10px;border-radius:14px;padding:12px}
+.betRow{display:flex;gap:6px;margin-top:8px} .betRow input{flex:1;padding:13px;border:1px solid #ddd;border-radius:10px} .betRow button{padding:10px 14px;border:none;background:#eef2ff;border-radius:8px;color:#0b3d91;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:10px}
+.card{background:#fff;border-radius:16px;padding:18px 5px;text-align:center;box-shadow:0 3px 10px #0001;font-weight:bold;font-size:12px}
+.card span{font-size:28px;display:block}
+#game{position:fixed;inset:0;background:#0a1931;display:none;z-index:99;padding:15px;color:#fff;text-align:center;overflow:auto}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}
+.bx{background:#162a52;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid #204080}
+.btn{width:100%;padding:15px;border-radius:30px;border:none;font-weight:800;margin-top:10px}
+.green{background:#00c851;color:#fff} .blue{background:#0b3d91;color:#fff}
 </style>
 </head>
 <body>
-<div id="login"><h1 style="color:gold;text-align:center">DK CLUB</h1><input placeholder="+91 Number"><input type="password" placeholder="Password"><button class="btn" onclick="document.getElementById('login').style.display='none';document.getElementById('main').style.display='block'">Log in</button></div>
-
-<div id="main">
-<div class="top">DK CLUB | Balance: ₹<span id="bal">5000</span></div>
-<div class="wallet"><b>₹<span id="bal2">5000</span></b><span style="font-size:12px">Playable Balance</span></div>
-
-<div style="padding:10px">
-<p style="color:#aaa;font-size:14px">Bet Amount ગમે એટલી નાખો</p>
-<div class="betRow">
-<input id="betAmt" type="number" value="100" placeholder="Bet Amount">
-<button onclick="document.getElementById('betAmt').value=100">100</button>
-<button onclick="document.getElementById('betAmt').value=500">500</button>
-<button onclick="document.getElementById('betAmt').value=1000">1000</button>
+<div class="top">91 CLUB • BLUE EDITION</div>
+<div class="wallet"><div><small>Wallet balance</small><br><b style="font-size:26px">₹<span id="bal">5000.00</span></b><br><small>UID 8233336 | BLUE VIP</small></div><div><button onclick="balance+=500;upd()" style="background:#fff;border:none;padding:10px 22px;border-radius:22px;color:#0b3d91;font-weight:800">Deposit</button></div></div>
+<div class="tabs"><div class="tab active">For You</div><div class="tab">Lobby</div><div class="tab">Slots</div><div class="tab">Original</div></div>
+<div class="betBox"><div style="font-size:13px;color:#666">Bet Amount - ગમે એટલી નાખો</div><div class="betRow"><input id="amt" type="number" value="100"><button onclick="amt.value=100">100</button><button onclick="amt.value=500">500</button><button onclick="amt.value=1000">1000</button></div></div>
+<div class="grid">
+<div class="card" onclick="openG('MINES')"><span>💣</span>MINES</div>
+<div class="card" onclick="openG('GEMS CLASH')"><span>💎</span>GEMS CLASH</div>
+<div class="card" onclick="openG('AVIATOR')"><span>🚀</span>AVIATOR</div>
+<div class="card" onclick="openG('CHICKEN ROAD')"><span>🐔</span>CHICKEN ROAD</div>
+<div class="card" onclick="openG('DRAGON')"><span>🐉</span>DRAGON</div>
+<div class="card" onclick="openG('DICE')"><span>🎲</span>DICE</div>
+<div class="card" onclick="openG('PLINKO')"><span>🎯</span>PLINKO</div>
+<div class="card" onclick="openG('ROULETTE')"><span>🎰</span>ROULETTE</div>
+<div class="card" onclick="openG('CRICKET')"><span>🏏</span>CRICKET</div>
 </div>
-</div>
-
-<div class="games">
-<div class="g" onclick="startGame('MINES')">💣<br>MINES</div>
-<div class="g" onclick="startGame('GEMS')">💎<br>GEMS CLASH</div>
-<div class="g" onclick="startGame('AVIATOR')">🚀<br>AVIATOR</div>
-<div class="g" onclick="startGame('CHICKEN')">🐔<br>CHICKEN ROAD</div>
-<div class="g" onclick="startGame('DRAGON')">🐉<br>DRAGON</div>
-<div class="g" onclick="startGame('DICE')">🎲<br>DICE</div>
-<div class="g" onclick="startGame('PLINKO')">🎯<br>PLINKO</div>
-<div class="g" onclick="startGame('ROULETTE')">🎰<br>ROULETTE</div>
-<div class="g" onclick="startGame('CRICKET')">🏏<br>CRICKET</div>
-</div>
-</div>
-
-<div id="gameBox">
-<h2 id="gTitle" style="color:gold"></h2>
-<p>Bet: ₹<span id="showBet">0</span> | Win: ₹<span id="win">0</span> | Multiplier: <span id="mult">1.00</span>x</p>
-<div id="gContent"></div>
-<button class="btn" style="background:#00c851;color:#fff;margin-top:15px" onclick="cashout()">WIN - Cashout</button>
-<button onclick="closeG()" style="width:100%;margin-top:10px;padding:10px;background:none;border:1px solid #555;color:#fff;border-radius:20px">Close - Loss</button>
-</div>
-
+<div id="game"><h2 id="gt" style="color:#00e5ff">GAME</h2><p>Bet ₹<span id="sb">0</span> | Win ₹<span id="wb">0</span> | <span id="mt">1.00x</span></p><div id="gc"></div><button class="btn green" onclick="cash()">CASHOUT ₹<span id="wb2">0</span></button><button class="btn blue" onclick="cls()">CLOSE</button></div>
 <script>
-let balance=5000, bet=0, win=0, mult=1, bombs=[];
-function updateBal(){document.getElementById('bal').innerText=balance; document.getElementById('bal2').innerText=balance;}
-
-function startGame(name){
-  bet=parseInt(document.getElementById('betAmt').value);
-  if(bet<=0 || bet>balance){alert('Balance ઓછું છે! Bet ઓછી નાખો. Balance: ₹'+balance); return;}
-  balance-=bet; updateBal();
-  win=0; mult=1;
-  document.getElementById('showBet').innerText=bet;
-  document.getElementById('win').innerText=0;
-  document.getElementById('mult').innerText='1.00';
-  document.getElementById('gTitle').innerText=name+' - ₹'+bet+' Bet';
-  document.getElementById('gameBox').style.display='block';
-  let c=document.getElementById('gContent'); c.innerHTML='';
-
-  if(name=='MINES' || name=='GEMS'){
-    bombs=[3,12,22]; // 3 bomb
-    let grid=document.createElement('div'); grid.className='grid5';
-    for(let i=0;i<25;i++){
-      let d=document.createElement('div'); d.className='box'; d.innerText='?';
-      d.onclick=function(){
-        if(d.innerText!='?') return;
-        if(bombs.includes(i)){d.innerText='💣';d.style.background='red'; alert('💣 Bomb! ₹'+bet+' Loss Thai Gaya'); closeG();}
-        else{d.innerText='💎';d.style.background='#00c851'; mult+=0.9; win=Math.floor(bet*mult); document.getElementById('win').innerText=win; document.getElementById('mult').innerText=mult.toFixed(2);}
-      };
-      grid.appendChild(d);
-    }
-    c.appendChild(grid);
-    c.innerHTML+='<p style="color:#aaa;font-size:12px">Gems kholo to paisa vadhe. Bomb avse to badhu loss.</p>';
-  } else {
-    c.innerHTML='<h1 id="roll" style="font-size:60px;margin:20px">?</h1><button class="btn" onclick="playOther()">PLAY</button>';
-  }
-}
-
-function playOther(){
-  let r=Math.random();
-  if(r>0.45){mult=1.9; win=Math.floor(bet*mult); document.getElementById('win').innerText=win; document.getElementById('mult').innerText=mult.toFixed(2); document.getElementById('roll').innerText='WIN '+mult+'x';}
-  else{document.getElementById('roll').innerText='LOSS'; alert('Loss! ₹'+bet+' Gaya'); closeG();}
-}
-
-function cashout(){
-  if(win==0){alert('Pehla ek Gems kholo!'); return;}
-  balance+=win; updateBal(); alert('You Won ₹'+win+' ! Bet ₹'+bet+' -> Win ₹'+win); closeG();
-}
-function closeG(){document.getElementById('gameBox').style.display='none';}
+let balance=5000,bet=0,win=0,mult=1,timer=null;
+function upd(){bal.innerText=balance.toFixed(2);}
+function openG(n){bet=parseInt(amt.value);if(bet>balance){alert('Balance નથી');return;}balance-=bet;upd();win=0;mult=1;gt.innerText=n;sb.innerText=bet;wb.innerText=0;wb2.innerText=0;mt.innerText='1.00x';game.style.display='block';let bombs=[2,9,18];gc.innerHTML='';let g=document.createElement('div');g.className='g5';for(let i=0;i<25;i++){let b=document.createElement('div');b.className='bx';b.id='b'+i;b.innerText='?';b.onclick=()=>clk(i,bombs);g.appendChild(b);}gc.appendChild(g);let ab=document.createElement('button');ab.className='btn blue';ab.innerText='AUTO GEMS START';ab.onclick=()=>auto(bombs);gc.appendChild(ab);}
+function clk(i,bombs){let el=document.getElementById('b'+i);if(el.innerText!='?')return;if(bombs.includes(i)){el.innerText='💣';el.style.background='#ff0040';clearInterval(timer);setTimeout(()=>{alert('Bomb Loss ₹'+bet);cls();},300);}else{el.innerText='💎';el.style.background='#00c851';mult+=0.9;win=Math.floor(bet*mult);wb.innerText=win;wb2.innerText=win;mt.innerText=mult.toFixed(2)+'x';}}
+function auto(bombs){clearInterval(timer);timer=setInterval(()=>{let r=[];for(let i=0;i<25;i++){let e=document.getElementById('b'+i);if(e.innerText=='?')r.push(i);}if(r.length==0){clearInterval(timer);return;}clk(r[Math.floor(Math.random()*r.length)],bombs);},600);}
+function cash(){if(win==0){alert('એક Gems ખોલ');return;}clearInterval(timer);balance+=win;upd();alert('WIN ₹'+win);cls();}
+function cls(){clearInterval(timer);game.style.display='none';}
 </script>
 </body>
-  </html>
+</html>￼Enter
