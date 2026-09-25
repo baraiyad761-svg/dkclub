@@ -1,96 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DK CLUB - Official</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0f0f0f;color:#fff}
-.header{background:#1a1a1a;padding:15px;text-align:center;font-size:22px;font-weight:bold;color:gold}
-.login-box{padding:20px}
-input{width:100%;padding:15px;margin:10px 0;border-radius:10px;border:none;background:#222;color:#fff}
-.btn{width:100%;padding:15px;background:linear-gradient(90deg,#ffcc00,#ff9900);border:none;border-radius:25px;font-size:18px;font-weight:bold;margin-top:10px}
-.nav{display:flex;justify-content:space-around;background:#1a1a1a;padding:10px;position:fixed;bottom:0;width:100%}
-.nav div{text-align:center;font-size:12px}
-.wallet{background:linear-gradient(135deg,#ffcc00,#ff8800);margin:15px;padding:20px;border-radius:15px;color:#000}
-.games{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:10px;padding-bottom:80px}
-.game{background:#222;border-radius:10px;padding:10px;text-align:center;font-size:12px}
-.game img{width:100%;border-radius:8px}
-.tabs{display:flex;overflow-x:auto;background:#1a1a1a;padding:10px;gap:10px}
-.tabs span{white-space:nowrap;padding:8px 15px;background:#222;border-radius:20px;font-size:13px}
-.tabs .active{background:gold;color:#000}
-#mainPage{display:none}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DK CLUB</title>
 </head>
-<body>
-
-<div id="loginPage">
-<div class="header">DK CLUB</div>
-<div class="login-box">
-<h3>Log in</h3>
-<p style="color:#aaa;font-size:14px">Please log in with your phone number</p>
-<input id="phone" placeholder="Phone Number +91">
-<input type="password" placeholder="Password">
-<button class="btn" onclick="login()">Log in</button>
-<button class="btn" style="background:#333;color:#fff">Register</button>
-</div>
-</div>
-
-<div id="mainPage">
-<div class="header">DK CLUB.COM</div>
-<div class="wallet">
-<p>UID 3674707 | VIP1</p>
-<h2 style="margin:10px 0">Total balance ₹<span id="bal">0.04</span></h2>
-<div style="display:flex;gap:10px">
-<button style="flex:1;padding:10px;border-radius:20px;border:none;background:#000;color:gold" onclick="addBal()">Deposit</button>
-<button style="flex:1;padding:10px;border-radius:20px;border:none;background:#000;color:#fff">Withdraw</button>
-</div>
-</div>
-
-<div class="tabs">
-<span class="active">Lobby</span><span>Slots</span><span>Fishing</span><span>Casino</span><span>Sports</span><span>Crash</span><span>Rummy</span>
-</div>
-
-<div class="games">
-<div class="game">🚀<br>AVIATOR</div>
-<div class="game">🐔<br>CHICKEN ROAD</div>
-<div class="game">💎<br>MINES</div>
-<div class="game">🐉<br>DRAGON TIGER</div>
-<div class="game">🎯<br>PLINKO</div>
-<div class="game">🎲<br>DICE</div>
-<div class="game">🏏<br>CRICKET</div>
-<div class="game">💣<br>BOMB</div>
-<div class="game">🎰<br>ROULETTE</div>
-<div class="game">⚽<br>GOAL</div>
-<div class="game">🃏<br>TEEN PATTI</div>
-<div class="game">🎣<br>FISHING CLUB</div>
-</div>
-
-<div class="nav">
-<div>🏠<br>Home</div>
-<div>🎁<br>Activity</div>
-<div>💰<br>Get ₹500</div>
-<div>👥<br>Promotion</div>
-<div>👤<br>Account</div>
-</div>
-</div>
-
-<script>
-function login(){
-if(document.getElementById('phone').value==""){
-alert("Phone number nakho");
-return;
-}
-document.getElementById('loginPage').style.display='none';
-document.getElementById('mainPage').style.display='block';
-}
-function addBal(){
-let b = parseFloat(document.getElementById('bal').innerText);
-b+=100;
-document.getElementById('bal').innerText=b.toFixed(2);
-alert("₹100 Deposit Success!");
-}
-</script>
+<body style="background:#111;color:#fff;text-align:center;font-family:sans-serif">
+<h1 style="color:gold">DK CLUB</h1>
+<h2>Balance: ₹<span id="b">0.04</span></h2>
+<button onclick="document.getElementById('b').innerText='100.04'" style="padding:15px;background:gold;border-radius:10px">Deposit ₹100</button>
+<p style="margin-top:30px">Games: AVIATOR | CHICKEN ROAD | MINES | DRAGON TIGER | PLINKO | DICE</p>
+<p>Login Success - Phone: +91</p>
 </body>
- </html>
+</html>
