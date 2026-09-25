@@ -1,106 +1,116 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>91 CLUB - DKCLUB Clone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91 CLUB - DK CLUB</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#f5f6fa;padding-bottom:70px}
-.header{background:#fff;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}
-.header b{color:#ff4e50;font-size:18px}
-.promo{background:#fff;margin:8px;border-radius:10px;overflow:hidden;border:1px solid #ffd1d1}
-.promo-top{background:#fff2f2;padding:8px;color:#d00;font-size:11px;font-weight:bold;text-align:center}
-.promo-body{display:flex;padding:10px;align-items:center;gap:10px}
-.wallet{display:flex;justify-content:space-between;align-items:center;padding:10px 10px;background:#fff;margin:0 8px;border-radius:10px}
-.wallet b{color:#000;font-size:16px}
-.btn-w{border:1px solid #ff4e50;color:#ff4e50;background:#fff;padding:6px 14px;border-radius:6px;font-weight:bold}
-.btn-d{background:#ff4e50;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-weight:bold;margin-left:6px}
-.twoBtn{display:flex;gap:8px;margin:8px}
-.twoBtn div{flex:1;border-radius:10px;padding:10px;color:#fff;display:flex;align-items:center;gap:8px;font-weight:bold;font-size:13px}
-.orange{background:linear-gradient(90deg,#ff8a00,#ffb347)} .purple{background:linear-gradient(90deg,#7b2eff,#a36bff)}
-.lobby{background:#fff;margin:8px;border-radius:10px;padding:8px;display:flex;gap:12px;overflow:auto;font-size:12px;white-space:nowrap}
-.lobby .active{color:#ff4e50;border-bottom:2px solid #ff4e50;font-weight:bold}
-.sec{margin:10px 8px}.sec-head{display:flex;justify-content:space-between;align-items:center;font-weight:bold;font-size:13px;margin-bottom:6px}
-.cards{display:flex;gap:8px;overflow:auto;padding-bottom:4px}
-.card{min-width:108px;height:115px;border-radius:10px;flex-shrink:0;background:#ddd;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;color:#fff;font-weight:bold;font-size:11px;text-shadow:0 1px 2px #000}
-.card.lot{height:85px;min-width:48%;border-radius:12px;font-size:14px}
-.card.moto{width:100%;height:80px;background:linear-gradient(90deg,#fff,#ffeaea);color:#000;border:1px solid #ffcccc}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:6px 0;border-top:1px solid #ddd;z-index:99}
-.bottom div{text-align:center;font-size:10px;color:#999}.bottom .act{color:#ff4e50}
-.get500{position:fixed;bottom:62px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #ff4e50;color:#ff4e50;padding:5px 12px;border-radius:20px;font-size:11px;box-shadow:0 2px 8px #0002}
+.header{background:#fff;padding:8px 10px;display:flex;justify-content:space-between;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
+.wallet{display:flex;justify-content:space-between;padding:10px;background:#fff;margin:8px;border-radius:10px}
+.btn-w{border:1px solid #ff4e50;color:#ff4e50;background:#fff;padding:6px 14px;border-radius:6px}.btn-d{background:#ff4e50;color:#fff;border:none;padding:6px 14px;border-radius:6px;margin-left:6px}
+.twoBtn{display:flex;gap:8px;margin:8px}.twoBtn div{flex:1;padding:10px;border-radius:10px;color:#fff;font-weight:bold}
+.lobby{background:#fff;margin:8px;border-radius:10px;padding:8px;display:flex;gap:15px;overflow:auto;position:sticky;top:35px;z-index:9}
+.lobby span{padding:5px 0;white-space:nowrap;cursor:pointer}.lobby .active{color:#ff4e50;border-bottom:2px solid #ff4e50;font-weight:bold}
+.sec{margin:8px}.cards{display:flex;gap:8px;overflow:auto}
+.card{min-width:108px;height:115px;border-radius:10px;flex-shrink:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;color:#fff;font-weight:bold;font-size:11px}
+
+/* MINI GAME FULL PAGE */
+#miniPage{display:none;background:#fff;min-height:100vh}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px}
+.mini-card{height:95px;border-radius:12px;background:linear-gradient(135deg,#ff4e50,#ff8a8a);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:11px;text-align:center}
+.mini-card span{font-size:28px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:6px 0;border-top:1px solid #ddd}
+.bottom div{text-align:center;font-size:10px;color:#999;cursor:pointer}.bottom .act{color:#ff4e50}
 </style>
 </head>
 <body>
 
-<div class="header"><b>🔴 91 CLUB</b><span style="font-size:18px">+ 88 ☰</span></div>
+<!-- HOME PAGE -->
+<div id="homePage">
+<div class="header"><b>🔴 91 CLUB</b><span>kanpur91.com/#/</span></div>
 
-<div class="promo">
-<div class="promo-top">Boost your Deposit to Earn and Withdraw Easily Using AR Wallet!</div>
-<div class="promo-body">
-<div style="flex:1;font-size:11px;color:#333">Experience swift deposits and withdrawals, along with exclusive benefits for every transaction through AR Wallet. Visit the AR Wallet at <span style="color:blue">91arwallet.com</span> to explore current promotional offers.</div>
-<img src="https://cdn-icons-png.flaticon.com/512/3001/3001764.png" style="width:70px">
-</div>
-</div>
+<div class="wallet"><div>Wallet balance<br><b>₹0.04</b></div><div><button class="btn-w">Withdraw</button><button class="btn-d">Deposit</button></div></div>
 
-<div class="wallet">
-<div>Wallet balance<br><b>₹0.04</b></div>
-<div><button class="btn-w">Withdraw</button><button class="btn-d">Deposit</button></div>
-</div>
-
-<div class="twoBtn">
-<div class="orange">🎡 Wheel of fortune</div>
-<div class="purple">👑 VIP privileges</div>
-</div>
+<div class="twoBtn"><div style="background:linear-gradient(90deg,#ff8a00,#ffb347)">🎡 Wheel of fortune</div><div style="background:linear-gradient(90deg,#7b2eff,#a36bff)">👑 VIP privileges</div></div>
 
 <div class="lobby">
-<span class="active">🏠 Lobby</span><span>🎮 Mini game</span><span>🎰 Slots</span><span>🃏 Card</span><span>🎣 Fishing</span>
+<span class="active" onclick="showHome()">🏠 Lobby</span>
+<span onclick="showMini()">🎮 Mini game</span>
+<span onclick="showMini()">🎰 Slots</span>
+<span onclick="showMini()">🃏 Card</span>
+<span onclick="showMini()">🎣 Fishing</span>
 </div>
 
 <div class="sec">
-<div class="sec-head"><span>⭐ Recommended Games</span></div>
+<b>Recommended Games</b>
 <div class="cards">
-<div class="card" style="background:linear-gradient(135deg,#111,#c00)">AVIATOR</div>
-<div class="card" style="background:linear-gradient(135deg,#300,#f00)">+500% AVIATOR</div>
-<div class="card" style="background:linear-gradient(135deg,#87ceeb,#fff)">AVIATOR</div>
+<div class="card" style="background:#111">AVIATOR</div><div class="card" style="background:#c00">AVIATOR 500%</div><div class="card" style="background:#0af">AVIATOR</div>
 </div>
 </div>
 
 <div class="sec">
-<div class="sec-head"><span>🎱 Lottery</span><span style="font-size:10px;color:#999">independently developed...</span></div>
+<b>Lottery</b>
 <div class="cards" style="flex-wrap:wrap">
-<div class="card lot" style="background:linear-gradient(90deg,#00d4ff,#0099ff)">WIN GO 1</div>
-<div class="card lot" style="background:linear-gradient(90deg,#ff5a5a,#ff9a9a)">K3 🎲</div>
-<div class="card lot" style="background:linear-gradient(90deg,#00c9a7,#00e5ff)">5D 5D</div>
-<div class="card lot" style="background:linear-gradient(90deg,#a259ff,#ff6ec7)">TRX WINGO</div>
+<div class="card" style="min-width:48%;height:80px;background:linear-gradient(90deg,#00d4ff,#0099ff)">WIN GO</div>
+<div class="card" style="min-width:48%;height:80px;background:linear-gradient(90deg,#ff5a5a,#ff9a9a)">K3</div>
+<div class="card" style="min-width:48%;height:80px;background:linear-gradient(90deg,#00c9a7,#00e5ff)">5D</div>
+<div class="card" style="min-width:48%;height:80px;background:linear-gradient(90deg,#a259ff,#ff6ec7)">TRX WINGO</div>
 </div>
 </div>
 
-<div class="sec">
-<div class="cards"><div class="card moto">🏍️ MOTO RACING</div></div>
-</div>
+<div class="sec"><div class="cards"><div class="card" style="width:100%;height:80px;background:#ffecec;color:#000;border:1px solid #ffcccc">🏍️ MOTO RACING</div></div></div>
 
 <div class="sec">
-<div class="sec-head"><span>🎮 Mini game</span><span>Detail ></span></div>
+<div style="display:flex;justify-content:space-between"><b>🎮 Mini game</b><span style="color:#ff4e50;font-size:12px" onclick="showMini()">Detail ></span></div>
 <div class="cards">
-<div class="card" style="background:linear-gradient(135deg,#ffcc00,#ff9900)">CRYPTOS</div>
-<div class="card" style="background:linear-gradient(135deg,#8e2de2,#4a00e0)">SPACE DICE</div>
-<div class="card" style="background:linear-gradient(135deg,#0f4c75,#3282b8)">GOAL WAVE</div>
+<div class="card" onclick="showMini()" style="background:orange">CRYPTOS</div><div class="card" onclick="showMini()" style="background:#7b2eff">SPACE DICE</div><div class="card" onclick="showMini()" style="background:#0f4c75">GOAL WAVE</div>
 </div>
 </div>
 
-<div class="sec">
-<div class="sec-head"><span>🎰 Slots</span><span>Detail ></span></div>
-<div class="cards">
-<div class="card" onclick="alert('GEMS GAME NEXT - અહીંયા GEMS આવશે')" style="width:100%;background:linear-gradient(90deg,#2a0a4a,#ff4e50);height:90px;justify-content:center;font-size:16px;border:2px dashed gold">💎 FORTUNE GEMS - NEXT STEP</div>
-</div>
 </div>
 
-<div class="get500">Get ₹28 Add to Desktop</div>
+<!-- MINI GAME LOBBY PAGE - તારા ફોટા જેવો જ -->
+<div id="miniPage">
+<div class="header"><span onclick="showHome()" style="color:#ff4e50;font-weight:bold">← Back</span><b>Mini Game Lobby</b><span></span></div>
+
+<div class="mini-grid">
+<div class="mini-card" style="background:linear-gradient(135deg,#ff416c,#ff4b2b)"><span>♠️</span>TEEN PATTI</div>
+<div class="mini-card" style="background:linear-gradient(135deg,#11998e,#38ef7d)"><span>🃏</span>RUMMY</div>
+<div class="mini-card" style="background:linear-gradient(135deg,#4e54c8,#8f94fb)"><span>🎲</span>LUDO</div>
+<div class="mini-card"><span>🎰</span>MINI ROULETTE</div>
+<div class="mini-card" style="background:linear-gradient(135deg,#f7971e,#ffd200)"><span>🐴</span>HORSE RACING</div>
+<div class="mini-card" style="background:linear-gradient(135deg,#00b4db,#0083b0)"><span>4️⃣</span>KENO 80</div>
+<div class="mini-card"><span>💣</span>MINES</div>
+<div class="mini-card" style="background:linear-gradient(135deg,#ff9966,#ff5e62)" onclick="alert('Fortune Gems Opening...')"><span>💎</span>FORTUNE GEMS</div>
+<div class="mini-card"><span>🚀</span>CRYPTOS</div>
+<div class="mini-card"><span>🎲</span>SPACE DICE</div>
+<div class="mini-card"><span>⚽</span>GOAL WAVE</div>
+<div class="mini-card"><span>🎯</span>PLINKO</div>
+<div class="mini-card"><span>🃏</span>ANDAR BAHAR</div>
+<div class="mini-card"><span>♠️</span>BLACKJACK</div>
+<div class="mini-card"><span>🎰</span>7 UP DOWN</div>
+<div class="mini-card"><span>🐟</span>BOOM LEGEND</div>
+<div class="mini-card"><span>🎣</span>MEGA FISHING</div>
+<div class="mini-card"><span>😊</span>HAPPY FISHING</div>
+<div class="mini-card"><span>✈️</span>AVIATOR</div>
+<div class="mini-card"><span>🏍️</span>MOTO RACING</div>
+<div class="mini-card"><span>⚽</span>SPORTS</div>
+<div class="mini-card"><span>🎰</span>CLASH OF GODS</div>
+<div class="mini-card"><span>👑</span>TEXAS HOLDEM</div>
+<div class="mini-card"><span>3️⃣</span>365</div>
+</div>
+</div>
 
 <div class="bottom">
-<div class="act">🏠<br>Home</div><div>📊<br>Activity</div><div style="color:#ff4e50;font-weight:bold">Get ₹500</div><div>💰<br>Promotion</div><div>👤<br>Account</div>
+<div class="act" onclick="showHome()">🏠<br>Home</div><div>📊<br>Activity</div><div style="color:#ff4e50">Get ₹500</div><div>💰<br>Promotion</div><div>👤<br>Account</div>
 </div>
 
+<script>
+function showMini(){document.getElementById('homePage').style.display='none';document.getElementById('miniPage').style.display='block';window.scrollTo(0,0);}
+function showHome(){document.getElementById('miniPage').style.display='none';document.getElementById('homePage').style.display='block';}
+</script>
+
 </body>
-</html>￼Enter
+                                                                                                                     </html>
