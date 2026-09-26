@@ -2,94 +2,125 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>91 CLUB Original</title>
+<title>91 CLUB - Original Lobby</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#f5f6fa;padding-bottom:70px}
-.card{border-radius:12px;overflow:hidden;position:relative;flex-shrink:0;background:#fff;box-shadow:0 2px 5px #0001}
+body{background:#eef1f8;padding-bottom:70px}
+.top{background:#fff;padding:10px;display:flex;gap:10px;overflow:auto;white-space:nowrap;position:sticky;top:0;z-index:10;border-bottom:1px solid #ddd}
+.top span{padding:6px 12px;border-radius:8px;background:#f2f2f2;font-size:13px}.top .active{background:#fff;box-shadow:0 2px 8px #0001;color:#000;font-weight:bold}
+.sec{margin:10px 8px}.sec-head{display:flex;justify-content:space-between;align-items:center;font-weight:bold;font-size:14px;margin-bottom:8px}
+.cards{display:flex;gap:10px;overflow:auto;padding-bottom:5px}
+.card{min-width:125px;height:165px;border-radius:14px;overflow:hidden;flex-shrink:0;position:relative;background:#fff;box-shadow:0 2px 6px #0001}
 .card img{width:100%;height:100%;object-fit:cover}
-.sec{margin:8px}.cards{display:flex;gap:8px;overflow:auto;padding-bottom:5px}
-.badge{position:absolute;top:4px;left:4px;background:#8a2be2;color:#fff;font-size:10px;padding:2px 5px;border-radius:4px;font-weight:bold;z-index:2}
-.gem-badge{position:absolute;top:0;left:0;background:#ff00ff;color:#fff;padding:2px 6px;font-size:10px;border-radius:0 0 8px 0;font-weight:bold}
+.badge{position:absolute;top:0;left:0;background:#a020f0;color:#fff;font-size:11px;padding:3px 8px;border-radius:10px 0 10px 0;font-weight:bold;z-index:2}
+.badge.gold{background:#ffcc00;color:#000}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd}
+.bottom div{text-align:center;font-size:10px;color:#888}.bottom .act{color:#ff4e50}
 </style>
 </head>
 <body>
 
-<div style="padding:10px;background:#fff;display:flex;justify-content:space-between"><b>Lobby</b><span>Mini game Slots Card Fishing</span></div>
+<div class="top">
+<span class="active">🏠 Lobby</span><span>🎮 Mini game</span><span>⑦ Slots</span><span>🃏 Card</span><span>🎣 Fishing</span>
+</div>
 
 <div class="sec">
-<b>⭐ Recommended Games</b>
+<div class="sec-head"><span>⭐ Recommended Games</span><span style="color:#999;font-size:12px">< < > </span></div>
 <div class="cards">
-<div class="card" style="min-width:140px;height:160px"><img src="lobby_aviator1.png"></div>
-<div class="card" style="min-width:140px;height:160px"><img src="lobby_aviator2.png"></div>
-<div class="card" style="min-width:140px;height:160px"><img src="lobby_aviator3.png"></div>
+<div class="card"><img src="final_aviator1.png"></div>
+<div class="card"><img src="final_aviator2.png"></div>
+<div class="card"><img src="final_aviator3.png"></div>
 </div>
 </div>
 
 <div class="sec">
-<b>Lottery</b>
-<div class="cards" style="flex-wrap:wrap">
-<div class="card" style="width:48%;height:95px"><img src="lobby_wingo.png"></div>
-<div class="card" style="width:48%;height:95px"><img src="lobby_k3.png"></div>
-<div class="card" style="width:48%;height:95px"><img src="lobby_5d.png"></div>
-<div class="card" style="width:48%;height:95px"><img src="lobby_trx.png"></div>
-<div class="card" style="width:100%;height:90px;margin-top:5px"><img src="lobby_moto.png"></div>
-</div>
-</div>
-
-<div class="sec">
-<b>Mini game</b>
+<div class="sec-head"><span>🎮 Mini game</span><span>Detail ></span></div>
 <div class="cards">
-<div class="card" style="min-width:110px;height:140px"><img src="mid_mines.png"></div>
-<div class="card" style="min-width:110px;height:140px"><img src="mid_ronaldinho.png"></div>
-<div class="card" style="min-width:110px;height:140px"><img src="mid_moneycoming.png"></div>
+<div class="card"><img src="final_mines.png"></div>
+<div class="card"><img src="final_ronaldinho.png"></div>
+<div class="card"><img src="final_moneycoming.png"></div>
 </div>
 </div>
 
 <div class="sec">
-<b>Slots</b>
+<div class="sec-head"><span>⑦ Slots</span><span>Detail ></span></div>
 <div class="cards">
-<div class="card" style="min-width:110px;height:150px"><img src="mid_ng_slots.png"></div>
-<div class="card" style="min-width:110px;height:150px"><img src="mid_9g_slots.png"></div>
-<div class="card" style="min-width:110px;height:150px"><img src="mid_pg_slots.png"></div>
+<div class="card"><img src="final_ng.png"></div>
+<div class="card"><img src="final_9g.png"></div>
+<div class="card"><img src="final_pg.png"></div>
 </div>
 </div>
 
 <div class="sec">
-<b>Super Jackpot - Fortune Gems with small photos</b>
+<div class="sec-head"><span>🃏 Rummy</span><span>Detail ></span></div>
 <div class="cards">
-<div class="card" style="min-width:130px;height:160px">
-<div class="gem-badge">31.1X</div><img src="bottom_money_coming_expanded.png">
-</div>
-<div class="card" style="min-width:130px;height:160px">
-<div class="gem-badge">16X</div><img src="bottom_fortune_gems_jili_15x.png">
-</div>
-<div class="card" onclick="openGems()" style="min-width:130px;height:160px;border:2px solid gold">
-<div class="gem-badge" style="background:gold;color:#000">19.2X JILI</div>
-<img src="bottom_fortune_gems_main.png">
-<div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,black);color:#fff;text-align:center;font-weight:bold;padding:5px;font-size:11px">FORTUNE GEMS - CLICK</div>
-</div>
+<div class="card" style="min-width:160px;height:200px"><img src="final_koolbet.png"></div>
+<div class="card" style="min-width:160px;height:200px"><img src="final_365.png"></div>
 </div>
 </div>
 
-<!-- GEMS WORKING PAGE WITH SAME PHOTOS -->
-<div id="gemPage" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#1a0a2e;z-index:999;padding:10px">
-<button onclick="document.getElementById('gemPage').style.display='none'" style="background:red;color:#fff;border:none;padding:5px 10px;border-radius:5px;float:right">X</button>
-<h2 style="color:gold;text-align:center">FORTUNE GEMS</h2>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:40px">
-<div class="card" style="height:80px"><img src="bottom_fortune_gems_main.png"></div>
-<div class="card" style="height:80px"><img src="bottom_fortune_gems_main.png"></div>
-<div class="card" style="height:80px"><img src="bottom_fortune_gems_jili_15x.png"></div>
-<div class="card" style="height:80px"><img src="bottom_money_coming_expanded.png"></div>
-<div class="card" style="height:80px"><img src="bottom_fortune_gems_main.png"></div>
-<div class="card" style="height:80px"><img src="bottom_fortune_gems_main.png"></div>
+<div class="sec">
+<div class="sec-head"><span>🎣 Fishing</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card"><img src="final_jackpot_fishing.png"></div>
+<div class="card"><img src="final_dino.png"></div>
+<div class="card"><img src="final_dragon.png"></div>
+<div class="card" style="min-width:110px"><img src="final_boom.png"></div>
+<div class="card" style="min-width:110px"><img src="final_mega.png"></div>
+<div class="card" style="min-width:110px"><img src="final_happy.png"></div>
 </div>
-<button onclick="alert('WIN! ₹'+(Math.floor(Math.random()*100)+50))" style="width:100%;margin-top:20px;background:orange;color:#fff;padding:12px;border:none;border-radius:20px;font-weight:bold">SPIN ₹10</button>
 </div>
 
-<script>
-function openGems(){document.getElementById('gemPage').style.display='block';}
-</script>
+<div class="sec">
+<div class="sec-head"><span>🎰 Casino</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card"><img src="final_mg_live.png"></div>
+<div class="card"><img src="final_evo.png"></div>
+<div class="card"><img src="final_choice.png"></div>
+<div class="card"><img src="final_wm.png"></div>
+</div>
+</div>
+
+<div class="sec">
+<div class="sec-head"><span>⚽ Sports</span><span>Detail ></span></div>
+<div class="cards">
+<div class="card"><img src="final_arbet.png"></div>
+<div class="card"><img src="final_ba.png"></div>
+<div class="card"><img src="final_cmd.png"></div>
+</div>
+</div>
+
+<div class="sec">
+<div class="sec-head"><span>🏆 Super Jackpot</span></div>
+<p style="font-size:11px;color:#666;margin-bottom:8px">When you win a super jackpot, you will receive additional rewards Maximum bonus ₹300.00</p>
+<div class="cards">
+<div class="card"><div class="badge">31.1X JILI</div><img src="final_money_expanded.png"></div>
+<div class="card"><div class="badge">16X JILI</div><img src="final_gems_16x.png"></div>
+<div class="card" onclick="document.getElementById('gemPage').style.display='block'" style="border:2px solid gold"><div class="badge gold">19.2X JILI</div><img src="final_gems_19x.png"><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,#000);color:#fff;text-align:center;font-size:10px;padding:5px;font-weight:bold">FORTUNE GEMS - CLICK TO PLAY</div></div>
+</div>
+</div>
+
+<!-- GEMS WORKING GAME WITH SAME PHOTOS -->
+<div id="gemPage" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#0d0225;z-index:999;padding:15px">
+<button onclick="document.getElementById('gemPage').style.display='none'" style="float:right;background:red;color:#fff;border:none;padding:6px 12px;border-radius:6px">X CLOSE</button>
+<h2 style="color:gold;text-align:center;margin-top:40px">💎 FORTUNE GEMS 💎</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px">
+<div class="card" style="height:85px"><img src="final_gems_19x.png"></div>
+<div class="card" style="height:85px"><img src="final_gems_16x.png"></div>
+<div class="card" style="height:85px"><img src="final_money_expanded.png"></div>
+<div class="card" style="height:85px"><img src="final_gems_19x.png"></div>
+<div class="card" style="height:85px"><img src="final_gems_19x.png"></div>
+<div class="card" style="height:85px"><img src="final_gems_16x.png"></div>
+<div class="card" style="height:85px"><img src="final_money_expanded.png"></div>
+<div class="card" style="height:85px"><img src="final_gems_19x.png"></div>
+<div class="card" style="height:85px"><img src="final_gems_16x.png"></div>
+</div>
+<button onclick="alert('SUPER WIN! ₹'+(Math.floor(Math.random()*500)+100))" style="width:100%;margin-top:25px;background:linear-gradient(90deg,#ff9800,#ff5722);color:#fff;border:none;padding:14px;border-radius:25px;font-size:18px;font-weight:bold">SPIN ₹10 - WIN MULTIPLIER 15X</button>
+</div>
+
+<div class="bottom">
+<div class="act">🏠<br>Home</div><div>📦<br>Activity</div><div style="background:linear-gradient(90deg,#ff9800,#ff5722);color:#fff;border-radius:20px;padding:2px 10px">Get ₹500</div><div>💰<br>Promotion</div><div>👤<br>Account</div>
+</div>
 
 </body>
-</html>
+  </html>
